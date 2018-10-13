@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { ItemSelecter } from './components';
+import { VisibleItemList } from './containers/visibleItemList';
 
 
 class App extends Component {
@@ -17,7 +19,7 @@ class App extends Component {
         <h2>Please select a country</h2>
         <div>
           
-          {/* <VisibleCountrySelector /> */}
+          <VisibleItemList/>
         </div>
         <h2>Next, select a state</h2>
         <div>
