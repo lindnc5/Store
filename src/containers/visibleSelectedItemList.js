@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import {fetchItemList, addItem} from '../index.js'
-import { ItemSelecter } from '../components.js'
+import { SelectedItemList } from '../components.js'
 
 
 
@@ -8,7 +8,7 @@ const mapStateToProps = state => {
     
     return {
         
-        itemList: state.ItemReducer
+        selectedItemList: state.SelectedItemReducer
         
     }
     
@@ -25,11 +25,10 @@ return{
   }
 }
 
- export const VisibleItemList =  connect(
+ export const VisibleSelectedItemList =  connect(
       mapStateToProps,
       mapDispatchToProps
 
-  )(ItemSelecter)
+  )(SelectedItemList)
 
-  export default VisibleItemList
-  
+  export default VisibleSelectedItemList

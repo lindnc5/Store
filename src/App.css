@@ -7,6 +7,12 @@
   height: 40vmin;
 }
 
+img {
+  max-width: 30%;
+    height: auto;
+    max-height: 50%;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -16,6 +22,16 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.listItem
+{
+  font-family: serif; 
+}
+
+.addedItem{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 10pt;
 }
 
 .App-link {

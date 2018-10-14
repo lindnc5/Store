@@ -42,11 +42,11 @@ ReactDOM.render(<Provider store={store}>
     export const FETCH_ITEMS = 'FETCH_ITEMS'
     export const RECEIVE_ITEMS = 'RECEIVE_ITEMS'
     
-    export function addItem(itemName)
+    export function addItem(itemId)
     {
         return{
             type: 'ADD_ITEM',
-            itemName
+            itemId
         }
     }
     
@@ -84,7 +84,7 @@ ReactDOM.render(<Provider store={store}>
     export function receiveItems(json)
 {
    
-    return{
+    return {
         type: "RECEIVE_ITEMS",
         itemList: json
     }
@@ -97,14 +97,14 @@ export function fetchItemList()
         dispatch(fetchItems())
     
 
-        return fetch('https://api.mlab.com/api/1/databases/grocery_data/collections/grocery?apiKey=EijCb1wHoyv6KO5_-3VwYqT9KhJWEgv2')
+        return fetch('https://api.bestbuy.com/v1/products(customerTopRated=true)?apiKey=66MB0ugdLfrelyK4ctUIRboi&format=json&pageSize=10&show=sku,name,image,salePrice,customerTopRated&sort=bestSellingRank')
         .then(
             response => response.json(),
             error => console.log('An error occurred.', error)
         
         )
         .then(json =>
-        store.dispatch(receiveItems(json))
+        store.dispatch(receiveItems(json.products))
         )
     }
     
