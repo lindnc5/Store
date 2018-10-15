@@ -23,10 +23,12 @@ class App extends Component {
 
     return (
       <div className = "App">
+       
         <Jumbotron>
-          <h1>Store</h1>
-          <p>Store that I havent decided yet</p>
+          <h1>Tech World</h1>
+          <p>One stop shop for technology</p>
           </Jumbotron>
+          <VisibleSelectedItemList/>
         <Grid>
           <Row>
 
@@ -37,15 +39,15 @@ class App extends Component {
         
         <VisibleItemList/>
         </Col>
-        
-        <Col xs={6} md={4} >
-        
-         <VisibleSelectedItemList/>
-
-          {/* <VisibleCountryAdd/> */}
-          </Col>
           </Row>
           </Grid>
+          <div className="w3-container w3-light-grey">
+          
+          <a className="w3-left" href="https://developer.bestbuy.com"> API by BestBuy
+    <img src="https://developer.bestbuy.com/images/bestbuy-logo.png" alt="Best Buy Developer API"/>
+          </a>
+          
+          </div>
             
           
             

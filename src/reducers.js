@@ -5,7 +5,6 @@ from './index'
 
 const ItemReducer = (state = [], action) =>
 {
-    console.log(state)
     switch(action.type) {
 
         case "RECEIVE_ITEMS":
@@ -30,44 +29,23 @@ const SelectedItemReducer = (state = [] , action) =>
             action.itemId
         ]
         case REMOVE_ITEM:
-        var items = Object.assign([],state)
-        for( var i = 0; i < state.length-1; i++){ 
-            if ( items[i] == state.itemName) {
+        var items = [...state]
+        for( var i = 0; i < items.length; i++){ 
+            if ( items[i].name == action.item.name) {
               items.splice(i, 1); 
+              return items
             }
          }
-        return items
+        
 
         default:
             return state
         }
         
 }
-
-const TotalReducer = (state = { total : 0} , action) =>
-{
-    switch(action.type) {
-        case  SUBTRACT_TOTAL:
-        return [...state,
-        {
-            total: {...state.total} - action.price
-        }]
-        case ADD_TOTAL:
-        return [...state,
-        {
-            total: {...state.total} + action.price
-        }]
-      
-        default:
-            return state
-        }
-        
-}
-
 const groceryStoreApp = combineReducers({
     ItemReducer,
-    SelectedItemReducer,
-    TotalReducer
+    SelectedItemReducer
 })
    
 export default groceryStoreApp

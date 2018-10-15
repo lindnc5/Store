@@ -13,20 +13,12 @@ import groceryStoreApp from './reducers'
 
 const loggerMiddleware = createLogger()
 
-let initialState = {
-    itemList: [],
-    selectedItemList: [],
-    total: 0
-}
-console.log("hi")
-
-
 let store = createStore(groceryStoreApp, applyMiddleware(thunkMiddleware, loggerMiddleware))
 
 const unsubscribe = store.subscribe(() =>{
 
 })
-store.dispatch(fetchItemList()).then(() => console.log(store.getState()))
+store.dispatch(fetchItemList())
 
 
 ReactDOM.render(<Provider store={store}> 
@@ -50,11 +42,11 @@ ReactDOM.render(<Provider store={store}>
         }
     }
     
-    export function removeItem(itemName)
+    export function removeItem(item)
     {
         return {
             type: REMOVE_ITEM,
-            itemName
+            item
         }
     }
 
@@ -100,7 +92,10 @@ export function fetchItemList()
         return fetch('https://api.bestbuy.com/v1/products(customerTopRated=true)?apiKey=66MB0ugdLfrelyK4ctUIRboi&format=json&pageSize=10&show=sku,name,image,salePrice,customerTopRated&sort=bestSellingRank')
         .then(
             response => response.json(),
-            error => console.log('An error occurred.', error)
+            error => {console.log('An error occurred.', error)
+            return 
+        }
+            
         
         )
         .then(json =>

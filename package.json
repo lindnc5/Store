@@ -7,6 +7,7 @@
     "cross-fetch": "^2.2.2",
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
+    "react-bootstrap-sidebar": "0.0.1",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.4",
